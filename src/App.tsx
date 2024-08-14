@@ -6,10 +6,9 @@ import Customers from './pages/customers/Customers'
 import UsuariosTable from "./pages/customers/UsuariosTable"
 import CategoriasTable from './pages/customers/CategoriasTable'
 import LugarTable from "./pages/customers/LugarTable"
-import InscripcionTable from "./pages/customers/InscripcionTable"
+import CustomberUsuarios from './pages/customers/CustomberUsuarios'
 
-// Importar bootstrap para usar en las tablas
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 
 function App() {
   
@@ -24,10 +23,10 @@ function App() {
       <section id="contenido">
         <Routes>
           <Route path="/Categoria" element={<CategoriasTable/>} />
-          <Route path="/Inscripcion" element={<InscripcionTable/>} />
+          <Route path="/Inscripcion" element={''} />
           <Route path="/Eventos" element={<Customers />} />
           <Route path="/Lugar" element={<LugarTable />} />  
-          <Route path="/Usuario" element={<UsuariosTable />} />    
+          <Route path="/Usuario" element={<CustomberUsuarios/>} />    
         </Routes>
       </section>
     </main>

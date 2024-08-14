@@ -2,8 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import DataTable from "react-data-table-component";
 import Swal from 'sweetalert2';
-import NiceModal from '@ebay/nice-modal-react';
-import ModalComponent from '../../components/ModalComponent';
+
 //
 interface Row {
     id_evento: number;
@@ -30,30 +29,10 @@ const CustomerTable: React.FC = () => {
     }, []);
 
     const editarCustomer = (row: Row) => () => {
-        NiceModal.show(ModalComponent, {
-            row,
-            onSave: handleSave,
-        });
+
     }
 
-    const handleSave = async (updatedRow: Row) => {
-        try {
-            await axios.put(`http://localhost:3000/eventos/${updatedRow.id_evento}`, updatedRow);
-            setRows(prevRows => prevRows.map(row => (row.id_evento === updatedRow.id_evento ? updatedRow : row)));
-            Swal.fire({
-                title: "Actualizado",
-                text: "El evento ha sido actualizado exitosamente.",
-                icon: "success"
-            });
-        } catch (error) {
-            console.error("Error updating event:", error);
-            Swal.fire({
-                title: "Error",
-                text: "No se pudo actualizar el evento.",
-                icon: "error"
-            });
-        }
-    }
+  
 
     const eliminarCustomer = (row: Row) => () => {
         Swal.fire({
